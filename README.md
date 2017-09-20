@@ -5,4 +5,6 @@ configurations.
 
 ### To install
 Execute `chmod +x install.sh` then `./install.sh`.
-# git_template
+
+To skip commit hook:
+`git commit --no-verify`

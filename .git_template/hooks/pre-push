@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+PUSH_COMMAND=$(ps -ocommand= -p $PPID)
+
+IS_DESTRUCTIVE='\-\-force|\-\-delete|\-f'
+
+# Allows us to read user input below, assigns stdin to keyboard
+exec < /dev/tty
+
+if [[ $PUSH_COMMAND =~ $IS_DESTRUCTIVE ]];then 
+  read -p "Do you really want to  force an update?[y/n]" answer
+  echo "$answer"
+if [[ $answer =~ "y" ]];then
+	exit 0
+fi
+fi
+
+exit 1

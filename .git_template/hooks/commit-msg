@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+message_file = ARGV[0]
+message = File.read(message_file)
+
+
+if !message["#"]
+	puts "[POLICY] Your message need to start with issue number"
+  exit 1
+end
+
